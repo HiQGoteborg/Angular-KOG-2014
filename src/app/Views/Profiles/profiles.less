@@ -1,5 +1,6 @@
 @itemSize: 100px;
 @black: #333;
+@dark-grey: #999;
 @grey: #e4e4e4;
 
 .profile-list {
@@ -39,11 +40,15 @@
 				margin: @itemSize/4;
 				border-top: 1px solid @grey;
 				border-right: 1px solid @grey;
-				transform: rotate(45deg);
+
+				@rotation: rotate(45deg);
+				-ms-transform: @rotation;
+				-webkit-transform: @rotation;
+				transform: @rotation;
 			}
 
 			&:hover .arrow:after {
-				border-color: @black;
+				border-color: @dark-grey;
 			}
 		}
 	}

@@ -7,8 +7,8 @@ module.exports = function(config){
 			'vendor/angular/angular.js',
 			'vendor/angular-route/angular-route.js',
 			'vendor/angular-mocks/angular-mocks.js',
-			'test/unit-init/init.js',
-			'src/**/*.js',
+			'src/init/**/*.js',
+			'src/app/**/*.js',
 			'src/**/*tpl.html'
 		],
 

@@ -7,7 +7,8 @@ module.exports = function(grunt) {
 		src_dir: './src',
 		build_dir: './build',
 
-		src_js: '<%= src_dir %>/**/*.js',
+		src_js: '<%= src_dir %>/app/**/*.js',
+		src_init_js: '<%= src_dir %>/init/**/*.js',
 		src_spec: '<%= src_dir %>/**/*.spec.js',
 		src_tpl: '<%= src_dir %>/**/*.tpl.html',
 		src_less: '<%= src_dir %>/**/*.less',
@@ -18,7 +19,7 @@ module.exports = function(grunt) {
 
 		// Lint javascript
 		jshint: {
-			files: ['<%= src_js %>', '!<%= src_spec %>'],
+			files: ['<%= src_init_js %>', '<%= src_js %>', '!<%= src_spec %>'],
 			options: {
 				jshintrc: true,
 				force: true
@@ -33,7 +34,7 @@ module.exports = function(grunt) {
 					compress: false,
 					beautify: true
 				},
-				src: ['<%= src_js %>', '!<%= src_spec %>'],
+				src: ['<%= src_init_js %>', '<%= src_js %>', '!<%= src_spec %>'],
 				dest: '<%= build_js %>'
 			}
 		},
@@ -108,12 +109,12 @@ module.exports = function(grunt) {
 			},
 
 			scripts: {
-				files: ['<%= src_js %>', '!<%= src_spec %>'],
+				files: ['<%= src_init_js %>', '<%= src_js %>', '!<%= src_spec %>'],
 				tasks: ['js']
 			},
 
 			tests: {
-				files: ['<%= src_js %>'],
+				files: ['<%= src_init_js %>', '<%= src_js %>'],
 				tasks: ['karma:unit:run']
 			},
 		},
