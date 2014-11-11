@@ -1,3 +1,1 @@
-(function() {
-	angular.module('angular-kog', ['ngRoute']);
-}());
+angular.module('angular-kog', ['ngRoute']);
