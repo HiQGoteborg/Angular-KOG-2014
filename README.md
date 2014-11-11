@@ -6,37 +6,37 @@ Angular-KOG-2014
 
 These components need to be installed and included in PATH
 
-- NodeJS:		http://nodejs.org/
+- NodeJS:	http://nodejs.org/
 - GIT:		http://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-- Grunt:		npm install -g grunt-cli
+- Grunt:	`npm install -g grunt-cli`
 
 
 ## Setup
 
-** Install node packages **
-npm install
+**Install node packages**
+`npm install`
 
-** Install bower dependencies **
-bower install
+**Install bower dependencies**
+`bower install`
 
 
 ## Run
 
-** Build and run app **
+**Build and run app**
 
-grunt
-
-
-** Build app **
-
-grunt build
+`grunt`
 
 
-** Run app **
+**Build app**
 
-grunt connect
+`grunt build`
 
 
-** Develop app **
+**Run app**
 
-grunt dev
+`grunt connect`
+
+
+**Develop app**
+
+`grunt dev`
