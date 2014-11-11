@@ -137,6 +137,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('js', ['jshint', 'uglify', 'ngtemplates']);
 	grunt.registerTask('build', ['js', 'karma:single', 'less']);
 
-	grunt.registerTask('default', ['build']);
+	grunt.registerTask('default', ['build', 'connect']);
 
 };
