@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='angular-kog'>
+<head>
+	<title>Angular KOG</title>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/styles.css">
+</head>
+<body>
+
+	<nav id='topnav' role="navigation">
+		<div class='container'>
+			<ul>
+				<li><a href="/#Home">Home</a></li>
+				<li><a href="/#Profiles">Profiles</a></li>
+				<li><a href="/#About">About</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class='container'>
+		<div ng-view></div>
+	</div>
+
+</body>
+
+<script type="text/javascript" src='vendor/angular/angular.js'></script>
+<script type="text/javascript" src='vendor/angular-route/angular-route.min.js'></script>
+<script type="text/javascript">
+	angular.module('angular-kog', ['ngRoute']);
+</script>
+<script type="text/javascript" src='dist/scripts.js'></script>
+
+</html>

@@ -1,0 +1,13 @@
+<div class='profile' ng-if='profile'>
+	<div class='header clearfix'>
+		<div class='left'>
+			<img ng-src="{{profile.imageUrl}}">
+		</div>
+		<div class='left'>
+			<h2>{{profile.firstName}} {{profile.lastName}}</h2>
+			<p>{{profile.role}}</p>
+		</div>
+	</div>
+	<div class='description' ng-bind-html="profile.description"></div>
+</div>
+<loader ng-if='!profile'></loader>

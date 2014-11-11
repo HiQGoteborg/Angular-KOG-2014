@@ -1,0 +1,16 @@
+
+<div class='profile-list'>
+	<ul ng-if='profiles'>
+		<li ng-repeat='profile in profiles' class='clearfix' ng-click='open(profile.id)'>
+			<div class='left'>
+				<img ng-src='{{profile.imageUrl}}'>
+			</div>
+			<div class='left'>
+				<h2>{{profile.firstName}} {{profile.lastName}}</h2>
+				<p>{{profile.role}}</p>
+			</div>
+			<div class='arrow'></div>
+		</li>
+	</ul>
+	<loader ng-if='!profiles'></loader>
+</div>
