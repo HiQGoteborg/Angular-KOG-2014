@@ -11,13 +11,19 @@ These components need to be installed and included in PATH
 - Grunt:	`npm install -g grunt-cli`
 
 
+
 ## Setup
 
 **Install node packages**
+
 `npm install`
 
+
+
 **Install bower dependencies**
+
 `bower install`
+
 
 
 ## Run
@@ -27,14 +33,17 @@ These components need to be installed and included in PATH
 `grunt`
 
 
+
 **Build app**
 
 `grunt build`
 
 
+
 **Run app**
 
 `grunt connect`
+
 
 
 **Develop app**
