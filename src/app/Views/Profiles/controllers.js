@@ -1,15 +1,18 @@
 angular.module('angular-kog')
 
-.controller('ProfileListCtrl', ['$scope', '$location', 'profileApi', function($scope, $location, profileApi){
+.controller('ProfileListCtrl', ['$scope', '$location', '$timeout', 'profileApi', function($scope, $location, $timeout, profileApi){
 
-	$scope.profiles = profileApi.getAllProfiles();
+	// TODO Remove timeout
+	$timeout(function() {
+		$scope.profiles = profileApi.getAllProfiles();
+	}, 500);
 
 	$scope.open = function(id) {
 		$location.path('/Profiles/'+id);
 	};
 }])
 
-.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', 'profileApi', function($scope, $routeParams, $sce, profileApi) {
+.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', '$timeout', 'profileApi', function($scope, $routeParams, $sce, $timeout, profileApi) {
 
 	var profile = profileApi.getProfile($routeParams.id),
 		nameRegexp = new RegExp(profile.firstName, 'gi'),
@@ -17,5 +20,8 @@ angular.module('angular-kog')
 
 	profile.htmlDescription = $sce.trustAsHtml(htmlDescription);
 
-	$scope.profile = profile;
+	// TODO Remove timeout
+	$timeout(function() {
+		$scope.profile = profile;
+	}, 500);
 }]);

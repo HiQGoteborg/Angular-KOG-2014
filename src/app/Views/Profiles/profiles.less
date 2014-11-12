@@ -9,16 +9,21 @@
 		padding: 0;
 		list-style: none;
 
-		border: 1px solid @grey;
 		color: @black;
 
 		li {
 			width: 100%;
 			padding: 20px;
-			border-bottom: 1px solid @grey;
+			border: 1px solid @grey;
+			border-bottom-color: #fff;
+
+			&:last-child {
+				border-bottom-color: @grey;
+			}
 
 			&:hover {
 				background-color: @grey;
+				border-color: @dark-grey;
 				cursor: pointer;
 			}
 
@@ -58,12 +63,21 @@
 .profile {
 
 	margin-top: 50px;
+	color: @black;
 
 	.left {
 		float: left;
 	}
 
 	.header {
+		margin-bottom: 20px;
+	}
+
+	h3 {
+		margin-bottom: 30px;
+	}
+
+	h4 {
 		margin-bottom: 20px;
 	}
 

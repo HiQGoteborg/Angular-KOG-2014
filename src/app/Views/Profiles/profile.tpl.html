@@ -6,6 +6,8 @@
 		<div class='left'>
 			<h2>{{profile.firstName}} {{profile.lastName}}</h2>
 			<h3>{{profile.role}}</h3>
+			<h4><i class='glyphicon glyphicon-thumbs-up'></i> {{profile.likes.join(', ')}}</h4>
+			<h4><i class='glyphicon glyphicon-thumbs-down'></i> {{profile.dislikes.join(', ')}}</h4>
 		</div>
 	</div>
 	<div class='description' ng-bind-html="profile.htmlDescription"></div>
