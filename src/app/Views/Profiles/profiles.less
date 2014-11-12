@@ -1,3 +1,5 @@
+@import '../../../../vendor/lesshat/build/lesshat';
+
 @itemSize: 100px;
 @black: #333;
 @dark-grey: #999;
@@ -45,11 +47,7 @@
 				margin: @itemSize/4;
 				border-top: 1px solid @grey;
 				border-right: 1px solid @grey;
-
-				@rotation: rotate(45deg);
-				-ms-transform: @rotation;
-				-webkit-transform: @rotation;
-				transform: @rotation;
+				.rotate(45deg);
 			}
 
 			&:hover .arrow:after {

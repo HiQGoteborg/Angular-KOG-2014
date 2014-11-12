@@ -1,3 +1,5 @@
+@import '../../../../vendor/lesshat/build/lesshat';
+
 .loading-container {
 	margin-top: 100px;
 	text-align: center;
@@ -7,29 +9,9 @@
 		line-height: 100px;
 		color: #e2e2e2;
 
-		-ms-transform-origin: 50% 49%;
-		-webkit-transform-origin: 50% 49%;
-		transform-origin: 50% 49%;
-
-		-webkit-animation: spin 1s infinite linear;
-		animation: spin 1s infinite linear;
+		.transform-origin(50% 49%);
+		.animation(spin 1s infinite linear);
 	}
 }
 
-@-webkit-keyframes spin {
-	0% {
-		-ms-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	50% {
-		-ms-transform: rotate(180deg);
-		-webkit-transform: rotate(180deg);
-		transform: rotate(180deg);
-	}
-	100% {
-		-ms-transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
+.keyframes(~'spin, 0% { transform: rotate(0deg) } 100% { transform: rotate(360deg) }');
