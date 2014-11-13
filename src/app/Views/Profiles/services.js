@@ -1,9 +1,11 @@
 angular.module('angular-kog')
 
 // TODO
-.constant('profileApiBaseUrl', 'http://localhost:8002/')
+// Define the base url for the profile api web service
+.constant('ProfileApiBaseUrl', 'http://localhost:8002/')
 
-.factory('profileApi', ['$http', 'profileApiBaseUrl', function($http, baseUrl){
+// A service to get profiles from the profile api web service
+.factory('ProfileApiService', ['$http', 'ProfileApiBaseUrl', function($http, baseUrl){
 
 	// TODO Remove
 	var profiles = [

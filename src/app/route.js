@@ -1,5 +1,6 @@
 angular.module('angular-kog')
 
+// Configure routes
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/Profiles', {

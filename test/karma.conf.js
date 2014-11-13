@@ -3,6 +3,7 @@ module.exports = function(config){
 
 		basePath : '../',
 
+		// Include angular, scripts and templates
 		files : [
 			'vendor/angular/angular.js',
 			'vendor/angular-route/angular-route.js',
@@ -33,14 +34,11 @@ module.exports = function(config){
 		reporters: ['progress', 'coverage'],
 
 		preprocessors: {
-			// source files, that you wanna generate coverage for
-			// do not include tests or libraries
-			// (these files will be instrumented by Istanbul)
-			'src/**/*.js': ['coverage'],
-			'src/**/*.tpl.html': ['ng-html2js']
+			'src/**/*.js': ['coverage'],		// Get test coverage
+			'src/**/*.tpl.html': ['ng-html2js'] // Put html templates in the angular javascipt template cache before running tests
 		},
 
-		// optionally, configure the reporter
+		// Optionally, configure the reporter
 		coverageReporter: {
 			type : 'html',
 			dir : 'test/coverage/'
@@ -49,7 +47,7 @@ module.exports = function(config){
 		// Create js template cache
 		ngHtml2JsPreprocessor: {
 			cacheIdFromPath: function(filepath) {
-				// Remove the path and only keep the filename, which is used in directives.
+				// Remove the path and only keep the filename, which is used as 'templateUrl'.
 				var parts = filepath.split('/'),
 					filename = parts[parts.length-1];
 				return filename;

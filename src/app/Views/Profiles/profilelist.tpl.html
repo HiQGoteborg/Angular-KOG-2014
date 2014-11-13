@@ -2,6 +2,7 @@
 	<ul ng-if='profiles'>
 		<li ng-repeat='profile in profiles' class='clearfix' ng-click='open(profile.id)'>
 			<div class='left'>
+				<!-- Use ng-src instead of src to prevent rendering before angular compilation -->
 				<img ng-src='{{profile.imageUrl}}'>
 			</div>
 			<div class='left'>

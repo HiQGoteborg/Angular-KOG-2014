@@ -1,7 +1,7 @@
 angular.module('angular-kog')
 
+// Simple directive to show a spinning loader icon
 .directive('loader', function() {
-	// Runs during compile
 	return {
 		restrict: 'E',
 		replace: true,

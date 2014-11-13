@@ -1,6 +1,7 @@
 <div class='profile' ng-if='profile'>
 	<div class='header clearfix'>
 		<div class='left'>
+			<!-- Use ng-src instead of src to prevent rendering before angular compilation -->
 			<img ng-src="{{profile.imageUrl}}">
 		</div>
 		<div class='left'>

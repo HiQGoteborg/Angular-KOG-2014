@@ -1,37 +1,43 @@
 describe('Profiles Services', function(){
 
 	var TEST_ID = 1,
-		profileApi, mockServer;
+		profileApiService, mockServer;
 
 	beforeEach(module('angular-kog'));
 
 	describe('Profile Api', function(){
 
-		beforeEach(inject(function($httpBackend, profileApiBaseUrl, _profileApi_) {
-			profileApi = _profileApi_;
+		beforeEach(inject(function($httpBackend, _ProfileApiBaseUrl_, _ProfileApiService_) {
+
+			// Using wrapping underscores prevent variable name clashes and angular will still find the services
+			profileApiServiceBaseUrl = _ProfileApiBaseUrl_;
+			profileApiService = _ProfileApiService_;
 
 			mockServer = $httpBackend;
 
-			mockServer.when('GET', profileApiBaseUrl + 'profiles')
+			// Mock request to get all profiles
+			mockServer.when('GET', profileApiServiceBaseUrl + 'profiles')
 				.respond(200, [{},{},{}]);
 
-			mockServer.when('GET', profileApiBaseUrl + 'profile/' + TEST_ID)
+			// Mock request to get a specific profile
+			mockServer.when('GET', profileApiServiceBaseUrl + 'profile/' + TEST_ID)
 				.respond(200, {id: TEST_ID});
 		}));
 
 		afterEach(function() {
+			// Make sure all requests have been flushed
 			mockServer.verifyNoOutstandingExpectation();
 			mockServer.verifyNoOutstandingRequest();
 		});
 
 		it('A call to get all profiles should make a ajax call to the rest api', function() {
-			expect(profileApi.getAllProfiles().length).toBe(4);
-			mockServer.flush();
+			expect(profileApiService.getAllProfiles().length).toBe(4); // TODO Change when using web service
+			mockServer.flush(); // Flush pending requests
 		});
 
 		it('A call to get a specific profile should make a ajax call to the rest api', function() {
-			expect(profileApi.getProfile(TEST_ID).id).toBe(TEST_ID);
-			mockServer.flush();
+			expect(profileApiService.getProfile(TEST_ID).id).toBe(TEST_ID); // TODO Change when using web service
+			mockServer.flush(); // Flush pending requests
 		});
 	});
 
