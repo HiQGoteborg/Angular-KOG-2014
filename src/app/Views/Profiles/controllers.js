@@ -1,12 +1,11 @@
 angular.module('angular-kog')
 
 // Profile List Controller
-.controller('ProfileListCtrl', ['$scope', '$location', '$timeout', 'ProfileApiService', function($scope, $location, $timeout, profileApi){
+.controller('ProfileListCtrl', ['$scope', '$location', 'ProfileApiService', function($scope, $location, profileApi){
 
-	// TODO Remove timeout
-	$timeout(function() {
-		$scope.profiles = profileApi.getAllProfiles();
-	}, 500);
+	profileApi.getAllProfiles(function(profiles) {
+		$scope.profiles = profiles;
+	});
 
 	$scope.open = function(id) {
 		// Open profile by changing the route
@@ -15,18 +14,17 @@ angular.module('angular-kog')
 }])
 
 // Profile Controller
-.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', '$timeout', 'ProfileApiService', function($scope, $routeParams, $sce, $timeout, profileApi) {
+.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', 'ProfileApiService', function($scope, $routeParams, $sce, profileApi) {
 
-	// Get profile from service and make first name bold in the description
-	var profile = profileApi.getProfile($routeParams.id),
-		nameRegexp = new RegExp(profile.firstName, 'gi'),
-		htmlDescription = profile.description.replace(nameRegexp, '<b>'+ profile.firstName +'</b>');
+	// Get profile from service
+	profileApi.getProfile($routeParams.id, function(profile) {
+		// Make first name bold in the description
+		var nameRegexp = new RegExp(profile.firstName, 'gi'),
+			htmlDescription = profile.description.replace(nameRegexp, '<b>'+ profile.firstName +'</b>');
 
-	// Specify the html description to be trusted (Strict Contextual Escaping)
-	profile.htmlDescription = $sce.trustAsHtml(htmlDescription);
+		// Specify the html description to be trusted (Strict Contextual Escaping)
+		profile.htmlDescription = $sce.trustAsHtml(htmlDescription);
 
-	// TODO Remove timeout
-	$timeout(function() {
 		$scope.profile = profile;
-	}, 500);
+	});
 }]);

@@ -17,7 +17,7 @@ describe('Profiles Services', function(){
 
 			// Mock request to get all profiles
 			mockServer.when('GET', profileApiServiceBaseUrl + 'profiles')
-				.respond(200, [{},{},{}]);
+				.respond(200, [{id:0},{id:1},{id:2}]);
 
 			// Mock request to get a specific profile
 			mockServer.when('GET', profileApiServiceBaseUrl + 'profile/' + TEST_ID)
@@ -31,12 +31,18 @@ describe('Profiles Services', function(){
 		});
 
 		it('A call to get all profiles should make a ajax call to the rest api', function() {
-			expect(profileApiService.getAllProfiles().length).toBe(4); // TODO Change when using web service
+			profileApiService.getAllProfiles(function(profiles) {
+				expect(profiles.length).toBe(3);
+			});
+
 			mockServer.flush(); // Flush pending requests
 		});
 
 		it('A call to get a specific profile should make a ajax call to the rest api', function() {
-			expect(profileApiService.getProfile(TEST_ID).id).toBe(TEST_ID); // TODO Change when using web service
+			profileApiService.getProfile(TEST_ID, function(profile) {
+				expect(profile.id).toBe(TEST_ID);
+			});
+
 			mockServer.flush(); // Flush pending requests
 		});
 	});
