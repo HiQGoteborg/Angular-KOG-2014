@@ -1,2 +1,2 @@
 // Initialise the angular app module
-angular.module('angular-kog', ['ngRoute']);
+angular.module('angular-kog', ['ngRoute', 'ngAnimate']);
