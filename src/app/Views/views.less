@@ -13,7 +13,7 @@
 // 	padding: 0;
 
 // 	[ng-view] {
-// 		&.ng-enter,
+// 		&.ng-enter, // Start
 // 		&.ng-leave {
 // 			position:absolute;
 // 			top:0;
@@ -26,15 +26,15 @@
 // 			.transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s);
 // 		}
 
-// 		&.ng-enter {
+// 		&.ng-enter { // Enter start
 // 			left: 100%;
 
-// 			&.ng-enter-active {
+// 			&.ng-enter-active { // Enter end
 // 				left: 0;
 // 			}
 // 		}
 
-// 		&.ng-leave.ng-leave-active {
+// 		&.ng-leave.ng-leave-active { // Leave end
 // 			left: -100%;
 // 		}
 // 	}

@@ -63,3 +63,9 @@ These components need to be installed
 - SCE (Strict Contextual Escaping)
 - Animations
 - ...and more
+
+
+
+## Grunt build
+
+![alt text](images/grunt.png "Grunt build schema")
