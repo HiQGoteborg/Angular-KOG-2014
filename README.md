@@ -68,13 +68,13 @@ These components need to be installed
 
 ## Grunt build
 
-*.js: 		Controllers, directives, services, etc
+*.js:       Controllers, directives, services, etc
 
-*.spec.js: 	Unit test specs
+*.spec.js:  Unit test specs
 
 *.tpl.html: Templates
 
-*.less:		Less styles
+*.less:     Less styles
 
 
 ![alt text](images/grunt.png "Grunt build schema")
