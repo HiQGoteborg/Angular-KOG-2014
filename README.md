@@ -68,6 +68,8 @@ These components need to be installed
 
 ## Grunt build
 
+Grunt builds the source code, not depending on folder structure, but on file suffix
+
 *.js : Controllers, directives, services, etc
 
 *.spec.js : Unit test specs
