@@ -1,23 +1,23 @@
 angular.module('angular-kog')
 
 // Profile List Controller
-.controller('ProfileListCtrl', ['$scope', '$location', 'ProfileApiService', function($scope, $location, profileApi){
+.controller('ProfileListCtrl', ['$scope', '$location', 'ProfilesApiService', function($scope, $location, profilesApi){
 
-	profileApi.getAllProfiles(function(profiles) {
+	profilesApi.getAllProfiles(function(profiles) {
 		$scope.profiles = profiles;
 	});
 
 	$scope.open = function(id) {
 		// Open profile by changing the route
-		$location.path('/Profiles/'+id);
+		$location.path('/Profile/'+id);
 	};
 }])
 
 // Profile Controller
-.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', 'ProfileApiService', function($scope, $routeParams, $sce, profileApi) {
+.controller('ProfileCtrl', ['$scope', '$routeParams', '$sce', 'ProfilesApiService', function($scope, $routeParams, $sce, profilesApi) {
 
 	// Get profile from service
-	profileApi.getProfile($routeParams.id, function(profile) {
+	profilesApi.getProfile($routeParams.id, function(profile) {
 		// Make first name bold in the description
 		var nameRegexp = new RegExp(profile.firstName, 'gi'),
 			htmlDescription = profile.description.replace(nameRegexp, '<b>'+ profile.firstName +'</b>');

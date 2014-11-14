@@ -1,26 +1,26 @@
 describe('Profiles Services', function(){
 
 	var TEST_ID = 1,
-		profileApiService, mockServer;
+		profilesApiService, mockServer;
 
 	beforeEach(module('angular-kog'));
 
 	describe('Profile Api', function(){
 
-		beforeEach(inject(function($httpBackend, _ProfileApiBaseUrl_, _ProfileApiService_) {
+		beforeEach(inject(function($httpBackend, _ProfilesApiBaseUrl_, _ProfilesApiService_) {
 
 			// Using wrapping underscores prevent variable name clashes and angular will still find the services
-			profileApiServiceBaseUrl = _ProfileApiBaseUrl_;
-			profileApiService = _ProfileApiService_;
+			var profilesApiServiceBaseUrl = _ProfilesApiBaseUrl_;
+			profilesApiService = _ProfilesApiService_;
 
 			mockServer = $httpBackend;
 
 			// Mock request to get all profiles
-			mockServer.when('GET', profileApiServiceBaseUrl + 'profiles')
+			mockServer.when('GET', profilesApiServiceBaseUrl + 'profiles')
 				.respond(200, [{id:0},{id:1},{id:2}]);
 
 			// Mock request to get a specific profile
-			mockServer.when('GET', profileApiServiceBaseUrl + 'profile/' + TEST_ID)
+			mockServer.when('GET', profilesApiServiceBaseUrl + 'profile/' + TEST_ID)
 				.respond(200, {id: TEST_ID});
 		}));
 
@@ -31,7 +31,7 @@ describe('Profiles Services', function(){
 		});
 
 		it('A call to get all profiles should make a ajax call to the rest api', function() {
-			profileApiService.getAllProfiles(function(profiles) {
+			profilesApiService.getAllProfiles(function(profiles) {
 				expect(profiles.length).toBe(3);
 			});
 
@@ -39,7 +39,7 @@ describe('Profiles Services', function(){
 		});
 
 		it('A call to get a specific profile should make a ajax call to the rest api', function() {
-			profileApiService.getProfile(TEST_ID, function(profile) {
+			profilesApiService.getProfile(TEST_ID, function(profile) {
 				expect(profile.id).toBe(TEST_ID);
 			});
 

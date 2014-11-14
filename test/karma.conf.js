@@ -7,6 +7,7 @@ module.exports = function(config){
 		files : [
 			'vendor/angular/angular.js',
 			'vendor/angular-route/angular-route.js',
+			'vendor/angular-animate/angular-animate.js',
 			'vendor/angular-mocks/angular-mocks.js',
 			'src/init/**/*.js',
 			'src/app/**/*.js',

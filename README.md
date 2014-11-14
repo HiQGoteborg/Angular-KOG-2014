@@ -49,3 +49,17 @@ These components need to be installed
 **Develop app**
 
 `grunt dev`
+
+
+
+## About
+
+**This basic angular app contains:**
+- Component based folder structure
+- Routing
+- Unit test with mock server
+- Basic service
+- Basic directive
+- SCE (Strict Contextual Escaping)
+- Animations
+- ...and more

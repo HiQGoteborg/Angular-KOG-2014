@@ -7,7 +7,7 @@ angular.module('angular-kog')
 			templateUrl: 'profilelist.tpl.html',
 			controller: 'ProfileListCtrl'
 		})
-		.when('/Profiles/:id', {
+		.when('/Profile/:id', {
 			templateUrl: 'profile.tpl.html',
 			controller: 'ProfileCtrl'
 		})
